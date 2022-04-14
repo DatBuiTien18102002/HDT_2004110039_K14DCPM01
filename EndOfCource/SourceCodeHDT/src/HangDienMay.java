@@ -50,6 +50,7 @@ public class HangDienMay extends HangHoa{
         return "";
     }
 
+
     @Override
     public String toString() {
         
@@ -57,6 +58,7 @@ public class HangDienMay extends HangHoa{
         +"\nTien VAT: "+this.tinhTienVAT()+"\nDanh gia: "+this.danhGia()+"\n";
     }
 
+    
     
 
     

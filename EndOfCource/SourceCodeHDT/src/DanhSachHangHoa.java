@@ -33,11 +33,37 @@ public class DanhSachHangHoa {
         }
     }
 
+    public void xoaTheoMaHH(String ma){
+        if(timHHTheoMa(ma)==null){
+            System.out.println("Xoa that bai!!");
+            return;
+        }else{
+            danhSach.remove(timHHTheoMa(ma));
+        }
+    }
+    public void xoaTheoTenHH(String ten) {
+        if(timHHTHeoTen(ten)==null){
+            System.out.println("Xoa that bai!!");
+            return;
+        }else{
+            danhSach.remove(timHHTheoMa(ten));
+        }
+    }
+
+    
     
     public int timViTriHH(HangHoa hH) {
         int viTri = danhSach.indexOf(hH);
         return viTri;
         
+    }
+    public void SuaHH(String mH,HangHoa hH) {
+        if(timHHTheoMa(mH)==null){
+            System.out.println("Sua that bai!!");
+            return;
+        }else{
+            danhSach.set(timViTriHH(timHHTheoMa(mH)), hH);
+        }
     }
     
     public HangHoa timHHTheoMa(String ma) {
@@ -58,34 +84,6 @@ public class DanhSachHangHoa {
         System.out.println("Hang hoa can tim khong ton tai");
         return null;
     }
-    public void xoaHH(HangHoa hH) {
-        danhSach.remove(hH);
-    }
-    public void xoaTheoMaHH(String ma){
-        if(timHHTheoMa(ma)==null){
-            System.out.println("Xoa that bai!!");
-            return;
-        }else{
-            danhSach.remove(timHHTheoMa(ma));
-        }
-    }
-    public void xoaTheoTenHH(String ten) {
-        if(timHHTHeoTen(ten)==null){
-            System.out.println("Xoa that bai!!");
-            return;
-        }else{
-            danhSach.remove(timHHTheoMa(ten));
-        }
-    }
-    public void SuaHH(String mH,HangHoa hH) {
-        if(timHHTheoMa(mH)==null){
-            System.out.println("Sua that bai!!");
-            return;
-        }else{
-            danhSach.set(timViTriHH(timHHTheoMa(mH)), hH);
-        }
-    }
-
     public void sapXepTHeoDonGiaGiamDan() {
         Comparator<HangHoa> sosanh = new Comparator<HangHoa>() {
         @Override
@@ -95,6 +93,7 @@ public class DanhSachHangHoa {
          };
         danhSach.sort(sosanh);
     }
+
 
     public void thongkeSLHH() {
         for (HangHoa hangHoa : danhSach) {
@@ -157,5 +156,5 @@ public class DanhSachHangHoa {
         } catch (Exception e) {
         }
     }
-
+    
 }

@@ -74,6 +74,7 @@ public abstract class HangHoa implements Serializable{
     abstract double tinhTienVAT();
     abstract String danhGia();
 
+
     @Override
     public String toString() {
  
@@ -81,6 +82,7 @@ public abstract class HangHoa implements Serializable{
         +"\nDon Gia: "+this.donGia;
 
     }
+
 
     
     

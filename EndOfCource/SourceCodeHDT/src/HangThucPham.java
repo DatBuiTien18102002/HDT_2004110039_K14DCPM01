@@ -17,7 +17,7 @@ public class HangThucPham extends HangHoa{
         }else{
             System.err.println("Ngay san xuat khong duoc de trong!!!");
             System.err.println("Chuyen sang mac dinh la ngay 01/01/1970");
-            System.err.println("Ngay san xuat: 01/01/1970\n");
+            System.err.println("Ngay san xuat(dd/mm/yyyy): 01/01/1970\n");
             try {
                 this.ngaySanXuat = sdf.parse("01/01/1970");
             } catch (ParseException e) {
@@ -34,13 +34,13 @@ public class HangThucPham extends HangHoa{
             } else {
                 System.err.println("Ngay het han phai sau ngay san xuat !!!");
                 System.err.println("Chuyen sang ngay mac dinh la ngay hien tai");
-                System.err.println("Ngay het han: "+ sdf.format(new Date())+"\n");
+                System.err.println("Ngay het han(dd/mm/yyyy): "+ sdf.format(new Date())+"\n");
                 this.ngayHetHan = new Date();
             }
         }else{
             System.out.println("Ngay Het han khong duoc rong!!!");
             System.err.println("Chuyen sang ngay mac dinh la ngay hien tai");
-            System.err.println("Ngay het han: "+ sdf.format(new Date())+"\n");
+            System.err.println("Ngay het han(dd/mm/yyyy): "+ sdf.format(new Date())+"\n");
             this.ngayHetHan = new Date();
         }
 
