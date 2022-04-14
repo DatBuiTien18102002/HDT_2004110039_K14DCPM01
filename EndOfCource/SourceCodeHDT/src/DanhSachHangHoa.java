@@ -39,6 +39,7 @@ public class DanhSachHangHoa {
             return;
         }else{
             danhSach.remove(timHHTheoMa(ma));
+            System.out.println("Xoa thanh cong");
         }
     }
     public void xoaTheoTenHH(String ten) {
@@ -46,7 +47,8 @@ public class DanhSachHangHoa {
             System.out.println("Xoa that bai!!");
             return;
         }else{
-            danhSach.remove(timHHTheoMa(ten));
+            danhSach.remove(timHHTHeoTen(ten));
+            System.out.println("Xoa thanh cong");
         }
     }
 
@@ -72,7 +74,7 @@ public class DanhSachHangHoa {
                 return hangHoa;
             }
         }
-        System.out.println("Hang hoa can tim khong ton tai");
+        System.out.println("Khong tim thay hang hoa");
         return null;
     }
     public HangHoa timHHTHeoTen(String ten) {
@@ -81,7 +83,7 @@ public class DanhSachHangHoa {
                 return hangHoa;
             }
         }
-        System.out.println("Hang hoa can tim khong ton tai");
+        System.out.println("Khong tim thay hang hoa");
         return null;
     }
     public void sapXepTHeoDonGiaGiamDan() {
@@ -115,13 +117,13 @@ public class DanhSachHangHoa {
     public void thongKeDGHH() {
         for (HangHoa hangHoa : danhSach) {
             if(hangHoa instanceof HangDienMay){
-                tongDGHangDM += hangHoa.getDonGia();
+                tongDGHangDM += hangHoa.getDonGia()*hangHoa.getSoLuongTon();
             }else if(hangHoa instanceof HangThucPham){
-                tongDGHangTP += hangHoa.getDonGia();
+                tongDGHangTP += hangHoa.getDonGia()*hangHoa.getSoLuongTon();
             }else{
-                tongDGHangSS += hangHoa.getDonGia();
+                tongDGHangSS += hangHoa.getDonGia()*hangHoa.getSoLuongTon();
             }
-            tongDGHH += hangHoa.getDonGia();
+            tongDGHH += hangHoa.getDonGia()*hangHoa.getSoLuongTon();
         }
 
         System.out.println("Tong don gia hang hoa: "+tongDGHH);

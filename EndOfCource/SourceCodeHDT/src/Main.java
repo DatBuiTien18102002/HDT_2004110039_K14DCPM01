@@ -9,6 +9,8 @@ public class Main {
         DanhSachHangHoa dSHH = new DanhSachHangHoa();
         String nhapTiep = null;
         int luaChon;
+        dSHH.layTuFile("danhsachhanghoa.dat");
+        dSHH.inDS();
         do {
             System.out.println("*********************** MENU ***********************");
             System.out.println("**  1.Quan ly danh sach                           **");
@@ -66,7 +68,6 @@ public class Main {
                                 System.out.print("Nhap ten cua hang hoa muon xoa: ");
                                 String tenXoa = sc.nextLine();
                                 dSHH.xoaTheoTenHH(tenXoa);
-                                ;
                                 break;
 
                         }
@@ -112,7 +113,9 @@ public class Main {
                         switch (luaChon3) {
                             case (1):
                                 dSHH.sapXepTHeoDonGiaGiamDan();
+                                System.out.println("************ Danh sach hang hoa giam dan don gia ***********");
                                 dSHH.inDS();
+                                System.out.println("************************************************************");
                                 break;
                             case (2):
                                 dSHH.thongkeSLHH();
@@ -136,10 +139,12 @@ public class Main {
                         luaChon4 = sc.nextInt();
                         switch (luaChon4) {
                             case (1):
+                                sc.nextLine();
                                 System.out.print("Nhap ten file: ");
                                 dSHH.ghiVaoFile(sc.nextLine());
                                 break;
                             case (2):
+                                sc.nextLine();
                                 System.out.println("Nhap ten file: ");
                                 dSHH.layTuFile(sc.nextLine());
                                 break;
