@@ -14,6 +14,16 @@ public class DanhSachHangHoa {
     private int tongSLHangDM=0,tongSLHangSS=0,tongSLHangTP=0;
     private int tongDGHH=0,tongDGHangDM=0,tongDGHangSS=0,tongDGHangTP=0;
 
+    public List<HangHoa> getDanhSachHH(){
+        return danhSach;
+    }
+
+    public void setDanhSachHH(List<HangHoa> danhSach) {
+        this.danhSach = danhSach;
+    }
+
+
+
 
     public void them(HangHoa newHH) {
         for (HangHoa hangHoa : danhSach) {
@@ -131,32 +141,5 @@ public class DanhSachHangHoa {
         System.out.println("Tong don gia hang Thuc Pham: "+tongDGHangTP);
         System.out.println("Tong don gia hang Sanh Su: "+tongDGHangSS);
     }
-
-    public void ghiVaoFile(String tenFile){
-        try {
-            FileOutputStream outFile = new FileOutputStream(tenFile);
-            
-            ObjectOutputStream objOut = new ObjectOutputStream(outFile);
-            
-            objOut.writeObject(danhSach);
-            System.out.println("Luu file thanh cong");
-            objOut.close();           
-        } catch (IOException e) {
-        }
-    }
-
-    public void layTuFile(String tenFile){
-        try {
-            FileInputStream inFile = new FileInputStream(tenFile);
-            
-            ObjectInputStream objIn = new ObjectInputStream(inFile);
-            
-            danhSach = (List) objIn.readObject();
-    
-            System.out.println("Lay file thanh cong");
-            objIn.close();           
-        } catch (Exception e) {
-        }
-    }
-    
+       
 }

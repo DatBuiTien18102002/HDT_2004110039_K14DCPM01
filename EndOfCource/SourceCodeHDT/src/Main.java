@@ -1,15 +1,11 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Scanner;
-
 public class Main {
-    static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         DanhSachHangHoa dSHH = new DanhSachHangHoa();
+        XuLyFile xuLy = new XuLyFile();
+        ConsoleInputing consoleInputing = new ConsoleInputing();
         String nhapTiep = null;
         int luaChon;
-        dSHH.layTuFile("danhsachhanghoa.dat");
+        xuLy.layTuFile("danhsachhanghoa.dat", dSHH);
         dSHH.inDS();
         do {
             System.out.println("*********************** MENU ***********************");
@@ -20,7 +16,7 @@ public class Main {
             System.out.println("**  0.Thoat                                       **");
             System.out.println("****************************************************");
             System.out.print("Lua chon :");
-            luaChon = sc.nextInt();
+            luaChon = consoleInputing.getNhap().nextInt();
             switch (luaChon) {
                 case (1):
                     int luaChon1;
@@ -34,15 +30,15 @@ public class Main {
                         System.out.println("**  0.Thoat                                       **");
                         System.out.println("****************************************************");
                         System.out.print("Lua chon :");
-                        luaChon1 = sc.nextInt();
+                        luaChon1 = consoleInputing.getNhap().nextInt();
                         switch (luaChon1) {
                             case (1):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("\nNhap thong tin hang hoa:");
                                 do {
-                                    dSHH.them(nhapHangHoa());
+                                    dSHH.them(consoleInputing.nhapHangHoa());
                                     System.out.print("\nBan co muon them tiep khong?(Y/N): ");
-                                    nhapTiep = sc.nextLine();
+                                    nhapTiep = consoleInputing.getNhap().nextLine();
                                 } while (nhapTiep.equalsIgnoreCase("Y"));
                                 break;
                             case (2):
@@ -51,22 +47,22 @@ public class Main {
                                 System.out.println("****************************************************");
                                 break;
                             case (3):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ma cua hang hoa muon sua: ");
-                                String mHSua = sc.nextLine();
+                                String mHSua = consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap thong tin hang hoa sua: ");
-                                dSHH.SuaHH(mHSua, nhapHangHoa());
+                                dSHH.SuaHH(mHSua, consoleInputing.nhapHangHoa());
                                 break;
                             case (4):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ma cua hang hoa muon xoa: ");
-                                String mHXoa = sc.nextLine();
+                                String mHXoa = consoleInputing.getNhap().nextLine();
                                 dSHH.xoaTheoMaHH(mHXoa);
                                 break;
                             case (5):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ten cua hang hoa muon xoa: ");
-                                String tenXoa = sc.nextLine();
+                                String tenXoa = consoleInputing.getNhap().nextLine();
                                 dSHH.xoaTheoTenHH(tenXoa);
                                 break;
 
@@ -83,17 +79,17 @@ public class Main {
                         System.out.println("**  0.Thoat                                       **");
                         System.out.println("****************************************************");
                         System.out.print("Lua chon :");
-                        luaChon2 = sc.nextInt();
+                        luaChon2 = consoleInputing.getNhap().nextInt();
                         switch (luaChon2) {
                             case (1):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ma cua hang hoa can tim: ");
-                                System.out.println(dSHH.timHHTheoMa(sc.nextLine()));
+                                System.out.println(dSHH.timHHTheoMa(consoleInputing.getNhap().nextLine()));
                                 break;
                             case (2):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ten cua hang hoa can tim: ");
-                                System.out.println(dSHH.timHHTHeoTen(sc.nextLine()));
+                                System.out.println(dSHH.timHHTHeoTen(consoleInputing.getNhap().nextLine()));
                                 break;
                         }
 
@@ -109,7 +105,7 @@ public class Main {
                         System.out.println("**  0.Thoat                                       **");
                         System.out.println("****************************************************");
                         System.out.print("Lua chon :");
-                        luaChon3 = sc.nextInt();
+                        luaChon3 = consoleInputing.getNhap().nextInt();
                         switch (luaChon3) {
                             case (1):
                                 dSHH.sapXepTHeoDonGiaGiamDan();
@@ -136,17 +132,17 @@ public class Main {
                         System.out.println("**  0.Thoat                                       **");
                         System.out.println("****************************************************");
                         System.out.print("Lua chon :");
-                        luaChon4 = sc.nextInt();
+                        luaChon4 = consoleInputing.getNhap().nextInt();
                         switch (luaChon4) {
                             case (1):
-                                sc.nextLine();
+                                consoleInputing.getNhap().nextLine();
                                 System.out.print("Nhap ten file: ");
-                                dSHH.ghiVaoFile(sc.nextLine());
+                                xuLy.ghiVaoFile(consoleInputing.getNhap().nextLine(), dSHH);
                                 break;
                             case (2):
-                                sc.nextLine();
-                                System.out.println("Nhap ten file: ");
-                                dSHH.layTuFile(sc.nextLine());
+                                consoleInputing.getNhap().nextLine();
+                                System.out.print("Nhap ten file: ");
+                                xuLy.layTuFile(consoleInputing.getNhap().nextLine(), dSHH);
                                 break;
                         }
 
@@ -157,64 +153,5 @@ public class Main {
         } while (luaChon != 0);
     }
 
-    public static HangHoa nhapHangHoa() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.print("\nMa hang: ");
-        String maHang = sc.nextLine();
-        System.out.print("Ten hang: ");
-        String tenHang = sc.nextLine();
-        System.out.print("So luong ton: ");
-        int soLuongTon = sc.nextInt();
-        System.out.print("Don gia: ");
-        double donGia = sc.nextDouble();
-        System.out.println("1.Hang Dien May");
-        System.out.println("2.Hang Thuc Pham");
-        System.out.println("3.Hang Sanh Su");
-        System.out.print("Lua Chon: ");
-        int luaChon = sc.nextInt();
-        HangHoa hH;
-        if (luaChon == 1) {
-            System.out.print("Thoi gian bao hanh: ");
-            int tGBaoHanh = sc.nextInt();
-            System.out.print("Cong suat: ");
-            double congSuat = sc.nextDouble();
-            sc.nextLine();
-            System.out.println("");
-            hH = new HangDienMay(maHang, tenHang, soLuongTon, donGia, tGBaoHanh, congSuat);
-        } else if (luaChon == 2) {
-            Date ngaySanXuat = null;
-            Date ngayHetHan = null;
-            sc.nextLine();
-            System.out.print("Ngay san xuat(dd/mm/yyyy): ");
-            try {
-                ngaySanXuat = sdf.parse(sc.nextLine());
-            } catch (Exception e) {
-                System.err.println("Nhap sai cau truc!!!");
-            }
-            System.out.print("Ngay het han(dd/mm/yyyy): ");
-            try {
-                ngayHetHan = sdf.parse(sc.nextLine());
-            } catch (Exception e) {
-                System.err.println("Nhap sai cau truc!!!");
-            }
-            System.out.print("Nha cung cap: ");
-            String nhaCungCap = sc.nextLine();
-            System.out.println("");
-            hH = new HangThucPham(maHang, tenHang, soLuongTon, donGia, ngaySanXuat, ngayHetHan, nhaCungCap);
-        } else {
-            Date ngayNhapkho = null;
-            sc.nextLine();
-            System.out.print("Nha san xuat: ");
-            String nhaSanXuat = sc.nextLine();
-            System.out.print("Ngay nhap kho(dd/mm/yyyy): ");
-            try {
-                ngayNhapkho = sdf.parse(sc.nextLine());
-            } catch (Exception e) {
-                System.err.println("Nhap sai cau truc!!!");
-            }
-            System.out.println("");
-            hH = new HangSanhSu(maHang, tenHang, soLuongTon, donGia, nhaSanXuat, ngayNhapkho);
-        }
-        return hH;
-    }
+
 }

@@ -54,7 +54,7 @@ public class HangDienMay extends HangHoa{
     @Override
     public String toString() {
         
-        return "Hang dien may"+super.toString()+"\nThoi Gian Bao Hanh: "+this.tGBaoHanh+" thang"+"\nCong Suat: "+this.congSuat+" KW"
+        return "Hang dien may"+super.toString()+"\nThoi Gian Bao Hanh: "+this.tGBaoHanh+" thang"+" thang"+"\nCong Suat: "+this.congSuat+" KW"
         +"\nTien VAT: "+this.tinhTienVAT()+"\nDanh gia: "+this.danhGia()+"\n";
     }
 
