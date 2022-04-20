@@ -6,31 +6,31 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class XuLyFile {
-    
-    public void ghiVaoFile(String tenFile,DanhSachHangHoa dSHH){
+
+    public void ghiVaoFile(String tenFile, DanhSachHangHoa dSHH) {
         try {
             FileOutputStream outFile = new FileOutputStream(tenFile);
-            
+
             ObjectOutputStream objOut = new ObjectOutputStream(outFile);
-            
+
             objOut.writeObject(dSHH.getDanhSachHH());
             System.out.println("Luu file thanh cong");
-            objOut.close();           
+            objOut.close();
         } catch (IOException e) {
         }
     }
 
-    public void layTuFile(String tenFile, DanhSachHangHoa dSHH){
+    public void layTuFile(String tenFile, DanhSachHangHoa dSHH) {
         try {
             FileInputStream inFile = new FileInputStream(tenFile);
-            
+
             ObjectInputStream objIn = new ObjectInputStream(inFile);
-            
+
             List<HangHoa> danhSach = (List) objIn.readObject();
             dSHH.setDanhSachHH(danhSach);
-    
+
             System.out.println("Lay file thanh cong");
-            objIn.close();           
+            objIn.close();
         } catch (Exception e) {
         }
     }

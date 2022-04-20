@@ -58,9 +58,7 @@ public class HangSanhSu extends HangHoa {
     }
 
     public long tinhTGLuuKho() {
-        if (this.ngayNhapkho == null) {
-            return 0;
-        }
+
         if (this.ngayNhapkho.after(new Date())) {
             return 0;
         }
@@ -68,7 +66,7 @@ public class HangSanhSu extends HangHoa {
         long endValue = new Date().getTime(); // chuyển đổi ngày hiện tại thành mili giây
         long tmp = Math.abs(endValue - startValue); // lấy hiệu giá trị tuyệt đối của hai mili giây
 
-        return tmp / (24 * 60 * 60 * 1000); // cho số mili giây trong một ngày
+        return tmp / (24 * 60 * 60 * 1000); // chia cho số mili giây trong một ngày
     }
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -76,9 +74,9 @@ public class HangSanhSu extends HangHoa {
     @Override
     public String toString() {
 
-        return "Hang sanh su" + super.toString() + "\nNha san xuat: " + this.nhaSanXuat + "\nNgay nhap kho: "
-                + sdf.format(this.ngayNhapkho)
-                + "\nThoi gian ton kho: " + this.tinhTGLuuKho() + " ngay" + "\nTien VAT: " + this.tinhTienVAT()
+        return "Hang sanh su" + super.toString() + "\nNha san xuat: " + this.nhaSanXuat 
+                + "\nNgay nhap kho: "+ sdf.format(this.ngayNhapkho)
+                + "\nThoi gian ton kho: " + this.tinhTGLuuKho() + " ngay" + "\nTien VAT: " + this.tinhTienVAT() + " dong"
                 + "\nDanh gia: " + this.danhGia() + "\n";
     }
 
