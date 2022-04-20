@@ -1,5 +1,5 @@
-Khi khởi động chương trình sẽ lấy danh sách hàng hóa từ file danhsachhanghoa.dat
-Chương trình quản lý hàng hóa gồm 12 chức năng chia thành 4 mục
+_Khi khởi động chương trình sẽ lấy danh sách hàng hóa từ file danhsachhanghoa.dat
+_Chương trình quản lý hàng hóa gồm 12 chức năng chia thành 4 mục
 
 _Quản lý danh sách
 +Thêm hàng hóa vào danh sách
